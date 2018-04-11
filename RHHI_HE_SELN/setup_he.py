@@ -200,11 +200,11 @@ def deploy_he_via_cockpit_w_gluster():
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").send_keys(ovirtmgmt_nic)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("Providing ovirtmgmt bridge NIC details...using [ "+ ovirtmgmt_nic+" ]")    
-     dr.implicitly_wait(7)
+    dr.implicitly_wait(7)
     
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("Selecting RHV-M Appliance image (OVA) - 4.1.20170328.1.el7ev [4.1.20170328.1.el7ev]")    
-     dr.implicitly_wait(40)
+    dr.implicitly_wait(40)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("Selecting VNC console to connect to the VM [VNC]")    
     time.sleep(5)
