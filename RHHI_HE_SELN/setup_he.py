@@ -321,7 +321,7 @@ def deploy_he_via_cockpit_w_gluster():
     #time.sleep(4000)
     logging.info("Confirm installation settings [Yes]"
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
-    dr.implicitly_wait(3000)
+    dr.implicitly_wait(2500)
     dr.get(root_uri + "/ovirt-dashboard")
     dr.save_screenshot("/tmp/HostedEngineComplete.png")
     logging.info("Saving screenshot to : /tmp/HostedEngineComplete.png")
