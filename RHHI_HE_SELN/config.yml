@@ -1,0 +1,63 @@
+---
+common:
+    host_user: root
+    host_password: redhatcss
+    host_ip: 192.168.50.6
+    rhvm_fqdn: dell-per730-06.css.lab.eng.rdu2.redhat.com
+    host2_ip : dell-per730-07.css.lab.eng.rdu2.redhat.com
+    host3_ip : dell-per730-08.css.lab.eng.rdu2.redhat.com
+    browser: chrome-headless  #chrome, chrome-headless, firefox or phantom
+    test_build: rhvh-4.1-0.20171207.0
+    ovirtmgmt_nic: em1
+
+subscription:
+    rhn_user: 
+    rhn_password: 
+     
+
+hosted_engine:
+    rhvm_appliance_path: https://rhhi-engine4.css.lab.eng.rdu2.redhat.com
+    storage_type: glusterfs
+    gluster_ip: 102.168.50.6
+    gluster_storage_path: engine
+    he_vm_mac: 72:14:c3:b8:ea:6d
+    he_vm_fqdn: rhhi-engine4.css.lab.eng.rdu2.redhat.com
+    he_vm_domain: css.lab.eng.rdu2.redhat.com
+    he_vm_ip: 10.8.32.35
+    he_vm_user: admin
+    he_vm_password: redhatcss
+    engine_password: redhatcss
+    no_of_cpus : 2
+    mem_size : 4096
+    vm_disk_size : 58
+    gw_address: 10.8.33.254
+    auto_answer: http://192.168.50.6:8000/run?download=true
+    # TODO
+
+gluster_details:
+    gluster_data_node1: dell-per730-07.css.lab.eng.rdu2.redhat.com
+    gluster_data_node2: dell-per730-08.css.lab.eng.rdu2.redhat.com
+    gluster_arbiter_node: dell-per730-06.css.lab.eng.rdu2.redhat.com
+    vmstore_is_arbiter: Yes
+    data_is_arbiter: Yes
+    data_disk_count: 4
+    device_name_engine: sdc
+    device_name_vmstore: sdc
+    device_name_data: sdc
+    size_of_datastore_lv: 12000
+    size_of_vmstore_lv: 1000
+    gdeploy_conf_file_path : /tmp/gdeployConfig.conf
+    mount_engine_brick : /gluster_bricks/engine
+    mount_data_brick: /gluster_bricks/data
+    mount_vmstore_brick: /gluster_bricks/vmstore
+    gluster_vg_name : gluster_vg_sdc
+    gluster_pv_name : /dev/sdc
+    number_of_Volumes : 3
+    engine_lv_name : /dev/mapper/gluster_vg_sdc-gluster_lv_engine
+    os_variant_rhvh : 'PRETTY_NAME="Red Hat Virtualization Host 4.1 (el7.4)"'
+    bad_device_name : 'hda'
+    file_path_interface1 : 'ens3f0'
+    file_path_interface2 : 'enp4s0f0'
+    rhhi_version: '1.1'
+    
+ 
