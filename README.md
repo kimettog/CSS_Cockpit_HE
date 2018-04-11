@@ -1,12 +1,12 @@
 # CSS_Cockpit_HE
-Project to automate the install process for Hosted Engine install 
 
+Project to automate the install process for Hosted Engine install 
 
 Running Deployment Cases - Selenium + Python
 
 This document describes about how to run deployment cases for RHHI using selenium & python.
 
-Prerequisites : 
+# Prerequisites : 
 
 Make sure that you have all the three host installed with latest RHV-H ISO , able to access at 
 least front end network ips of the system and no vgs present on the system .
