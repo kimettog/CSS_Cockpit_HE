@@ -26,45 +26,49 @@ logging.getLogger('').addHandler(console)
 
 #log = logging.getLogger("sherry")
 
-
 results_logs.logger_name = 'check.log'
-#results_logs.get_actual_logger('HE_Deploy')
+
 
 __all__ = ['CONF']
 
 CONF = list(yaml.load_all(open("./config.yml")))[0]
-  
-#dict1 = OrderedDict(zip(const.deployment_cases_RHHI, const.deployment_cases_RHHI_id))
 
-host_ip, host_user, host_password, browser, ovirtmgmt_nic, rhvm_fqdn = CONF.get('common').get('host_ip'), CONF.get('common').get('host_user'), CONF.get('common').get('host_password'), CONF.get('common').get('browser'), CONF.get('common').get('ovirtmgmt_nic'), CONF.get('common').get('rhvm_fqdn')
 
-gluster_ip, gluster_storage_path, rhvm_appliance_path, vm_mac, vm_fqdn, vm_ip, vm_user, vm_password, engine_password, auto_answer, he_vm_fqdn, he_vm_domain = CONF.get('hosted_engine').get('gluster_ip'), CONF.get('hosted_engine').get('gluster_storage_path'), CONF.get('hosted_engine').get('rhvm_appliance_path'), CONF.get('hosted_engine').get('he_vm_mac'), CONF.get('hosted_engine').get('he_vm_fqdn'), CONF.get('hosted_engine').get('he_vm_ip'), CONF.get('hosted_engine').get('he_vm_user'), CONF.get('hosted_engine').get('he_vm_password'), CONF.get('hosted_engine').get('engine_password'), CONF.get('hosted_engine').get('auto_answer'), CONF.get('hosted_engine').get('he_vm_fqdn'), CONF.get('hosted_engine').get('he_vm_domain')
+host_ip, host_user, host_password, browser, ovirtmgmt_nic, rhvm_fqdn = CONF.get('common').get('host_ip'), \
+    CONF.get('common').get('host_user'), CONF.get('common').get('host_password'), CONF.get('common').get('browser'),\
+    CONF.get('common').get('ovirtmgmt_nic'), CONF.get('common').get('rhvm_fqdn')
 
-gluster_data_node1, gluster_data_node2, gluster_arbiter_node, vmstore_is_arbiter, data_is_arbiter, data_disk_count, device_name_engine, device_name_data, device_name_vmstore, size_of_datastore_lv, size_of_vmstore_lv, gdeploy_conf_file_path, mount_engine_brick, mount_data_brick, mount_vmstore_brick, gluster_vg_name, gluster_pv_name, number_of_Volumes, engine_lv_name, os_variant_rhvh, bad_device_name = CONF.get(
-    'gluster_details'
-).get('gluster_data_node1'), CONF.get('gluster_details').get('gluster_data_node2'), CONF.get('gluster_details').get(
-    'gluster_arbiter_node'), CONF.get('gluster_details').get('vmstore_is_arbiter'), CONF.get('gluster_details').get(
-    'data_is_arbiter'), CONF.get('gluster_details').get('data_disk_count'), CONF.get('gluster_details').get(
-    'device_name_engine'), CONF.get('gluster_details').get('device_name_data'), CONF.get('gluster_details').get(
-    'device_name_vmstore'), CONF.get('gluster_details').get('size_of_datastore_lv'), CONF.get('gluster_details').get(
-    'size_of_vmstore_lv'), CONF.get('gluster_details').get('gdeploy_conf_file_path'), CONF.get('gluster_details').get(
-    'mount_engine_brick'), CONF.get('gluster_details').get('mount_data_brick'), CONF.get('gluster_details').get(
-    'mount_vmstore_brick'), CONF.get('gluster_details').get('gluster_vg_name'), CONF.get('gluster_details').get(
-    'gluster_pv_name'), CONF.get('gluster_details').get('number_of_Volumes'), CONF.get('gluster_details').get(
-    'engine_lv_name'), CONF.get('gluster_details').get('os_variant_rhvh'), CONF.get('gluster_details').get(
-    'bad_device_name')
-    
+gluster_ip, gluster_storage_path, rhvm_appliance_path, vm_mac, vm_fqdn, vm_ip, vm_user, vm_password, engine_password, \
+    auto_answer, he_vm_fqdn, he_vm_domain = CONF.get('hosted_engine').get('gluster_ip'), \
+    CONF.get('hosted_engine').get('gluster_storage_path'), CONF.get('hosted_engine').get('rhvm_appliance_path'), \
+    CONF.get('hosted_engine').get('he_vm_mac'), CONF.get('hosted_engine').get('he_vm_fqdn'), \
+    CONF.get('hosted_engine').get('he_vm_ip'), CONF.get('hosted_engine').get('he_vm_user'), \
+    CONF.get('hosted_engine').get('he_vm_password'), CONF.get('hosted_engine').get('engine_password'), \
+    CONF.get('hosted_engine').get('auto_answer'), CONF.get('hosted_engine').get('he_vm_fqdn'), \
+    CONF.get('hosted_engine').get('he_vm_domain')
 
+gluster_data_node1, gluster_data_node2, gluster_arbiter_node, vmstore_is_arbiter, data_is_arbiter, data_disk_count, \
+    device_name_engine, device_name_data, device_name_vmstore, size_of_datastore_lv, size_of_vmstore_lv, \
+    gdeploy_conf_file_path, mount_engine_brick, mount_data_brick, mount_vmstore_brick, gluster_vg_name, \
+    gluster_pv_name, number_of_Volumes, engine_lv_name, os_variant_rhvh, bad_device_name = \
+    CONF.get('gluster_details').get('gluster_data_node1'), CONF.get('gluster_details').get('gluster_data_node2'), \
+    CONF.get('gluster_details').get('gluster_arbiter_node'), CONF.get('gluster_details').get('vmstore_is_arbiter'), \
+    CONF.get('gluster_details').get('data_is_arbiter'), CONF.get('gluster_details').get('data_disk_count'), \
+    CONF.get('gluster_details').get('device_name_engine'), CONF.get('gluster_details').get('device_name_data'), \
+    CONF.get('gluster_details').get('device_name_vmstore'), CONF.get('gluster_details').get('size_of_datastore_lv'),\
+    CONF.get('gluster_details').get('size_of_vmstore_lv'), CONF.get('gluster_details').get('gdeploy_conf_file_path'), \
+    CONF.get('gluster_details').get('mount_engine_brick'), CONF.get('gluster_details').get('mount_data_brick'), \
+    CONF.get('gluster_details').get('mount_vmstore_brick'), CONF.get('gluster_details').get('gluster_vg_name'), \
+    CONF.get('gluster_details').get('gluster_pv_name'), CONF.get('gluster_details').get('number_of_Volumes'),\
+    CONF.get('gluster_details').get('engine_lv_name'), CONF.get('gluster_details').get('os_variant_rhvh'), \
+    CONF.get('gluster_details').get('bad_device_name')
 
 env.host_string = host_user + '@' + rhvm_fqdn
 env.password = host_password
 
 
-
-
 def init_browser():
-    
-    
+
     if browser == 'firefox':
         driver = webdriver.Firefox()
         return driver
@@ -97,11 +101,6 @@ def init_browser():
         raise NotImplementedError ("The selected browser is not supported")
 
 
-
-
-
- 
-#@checkpoint(dict1)
 def check_requirements():
     """
         Purpose:
@@ -110,9 +109,8 @@ def check_requirements():
     """
     
     logging.info("Checking that Requirements are met and if not met installing them.")
-    
-#@checkpoint(dict1)
-#def check_cockpitui_should_be_reachable_for_the_user():
+
+
 def deploy_he_via_cockpit_w_gluster():
     """
         Purpose:
@@ -120,8 +118,7 @@ def deploy_he_via_cockpit_w_gluster():
             With Gluster already configured use the Standard Configuration to deploy a 
             Hosted Engine
     """
-    
- 
+
     host_dict = {'host_ip': host_ip,
                  'host_user': host_user,
                  'host_password': host_password
@@ -131,10 +128,7 @@ def deploy_he_via_cockpit_w_gluster():
     else:
         cockpit_port = "9090"
     root_uri = "https://" + rhvm_fqdn + ":" + cockpit_port
-    
-    
-      
-   
+
     logging.info("Setting browser to %s", browser)
     
     dr = init_browser() 
@@ -143,9 +137,7 @@ def deploy_he_via_cockpit_w_gluster():
     dr.root_uri = "https://{}:9090".format(rhvm_fqdn)
     dr.get(root_uri)
     time.sleep(10)
-    
-   
-    
+
     logging.info("Logging into cockpit...")
     
     dr.find_element_by_id("login-user-input").clear()
@@ -177,8 +169,8 @@ def deploy_he_via_cockpit_w_gluster():
     dr.implicitly_wait(7)  
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     dr.implicitly_wait(7)
-    dr.find_element_by_xpath("//input[@autocomplete='new-password']").send_keys(host_ip+":/engine")
-    logging.info("Specifying shared storage path : [ "+ host_ip + "/engine ]")
+    dr.find_element_by_xpath("//input[@autocomplete='new-password']").send_keys(host_ip + ":/engine")
+    logging.info("Specifying shared storage path : [ " + host_ip + "/engine ]")
     dr.implicitly_wait(7)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     dr.implicitly_wait(7)
@@ -217,8 +209,7 @@ def deploy_he_via_cockpit_w_gluster():
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("Generate on-fly a cloud-init ISO image[Generate]")    
     time.sleep(8)
-     
-    
+
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").clear()
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").send_keys(he_vm_fqdn)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
@@ -238,8 +229,7 @@ def deploy_he_via_cockpit_w_gluster():
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("Automatically restart the engine VM as a monitored service after engine-setup [Yes]")    
     time.sleep(10)
-    
-    
+
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").clear()
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").send_keys(engine_password)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
@@ -250,8 +240,7 @@ def deploy_he_via_cockpit_w_gluster():
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("Confirm root password: *********")
     time.sleep(10)
-    
-    
+
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("Enter 'root' user ssh public key for engine appliance:[]")
     time.sleep(4)
@@ -261,8 +250,7 @@ def deploy_he_via_cockpit_w_gluster():
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("Please specify the size of the VM disk in GB: [58]")
     time.sleep(4)
-    
-    
+
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("Please specify the memory size of the VM in MB (Defaults to appliance OVF value): [16384]")
     time.sleep(4)
@@ -278,14 +266,13 @@ def deploy_he_via_cockpit_w_gluster():
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").clear()
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").send_keys(vm_mac)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
-    logging.info("specify a unicast MAC address for the VM : [ "+vm_mac+" ]")
+    logging.info("Specify a unicast MAC address for the VM : [ "+vm_mac+" ]")
     time.sleep(4)
     
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("How should the engine VM network be configured (DHCP, Static)[DHCP]")
     time.sleep(4)
-    
-    
+
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").clear()
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").send_keys("Yes")
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
@@ -314,41 +301,35 @@ def deploy_he_via_cockpit_w_gluster():
     time.sleep(4)
     
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
-    logging.info("Please provide a comma-separated list of email addresses which will get notifications [root@localhost]")
+    logging.info("Provide a comma-separated list of email addresses which will get notifications [root@localhost]")
     time.sleep(4)
-   
-   #Wait for Hosted Engine is up Message
-   
-    
-    
-    #time.sleep(4000)
+
+# Wait for Hosted Engine is up Message
+
     logging.info("Confirm installation settings [Yes]")
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     dr.implicitly_wait(3000)
     dr.get(root_uri + "/ovirt-dashboard")
     dr.save_screenshot("/tmp/HostedEngineComplete.png")
     logging.info("Saving screenshot to : /tmp/HostedEngineComplete.png")
-   
-    #check_sucessful_he_deployment()
     
     dr.quit()
 
-#def check_sucessful_he_deployment(hosted_engine_uri, vm_user, he_vm_password):
-def check_sucessful_he_deployment():  
+
+def check_successful_he_deployment():
     
     he_drv = init_browser()
     he_drv.get(rhvm_appliance_path)
     time.sleep(15)
-   
-    
-    #Find the "Administration Portal Link" and Click it
+
+    # Find the "Administration Portal Link" and Click it
     
     he_drv.find_element_by_link_text("Administration Portal").click()
     logging.debug ("Logging into Hosted Engine")
     time.sleep(10)
     logging.info("Logging into Hosted Engine...")
     time.sleep(5)
-    #Login
+    # Login
     he_drv.find_element_by_id("username").clear()
     he_drv.find_element_by_id("username").send_keys(vm_user)
     
@@ -359,28 +340,28 @@ def check_sucessful_he_deployment():
     
     he_drv.find_element_by_xpath("//button[@class='btn btn-primary btn-lg']").click()
     time.sleep(5)
-    #if success return success or if fail 
+    # If success return success or if fail
     
-    if (he_drv.title!="Red Hat Virtualization Manager Web Administration"):
+    if he_drv.title!="Red Hat Virtualization Manager Web Administration":
         logging.info ("Unable to SUCCESSFULLY Login to Hosted Engine.Hosted Engine was NOT Deployed.")
         print ("Hosted Engine was NOT properly Deployed. Unable to Log in")
         he_drv.quit()
-        
+        return 1
         
     else:
         logging.info ("Hosted Engine Deployment was Successful.")
         
         he_drv.quit()
-        
+        return 0
     
     
 def main():
     init_browser()
     check_requirements()
     deploy_he_via_cockpit_w_gluster()
-    check_sucessful_he_deployment()
+    cockpit_rc = check_successful_he_deployment()
+    return cockpit_rc
  
     
 if __name__ == '__main__':
     main()    
-    
