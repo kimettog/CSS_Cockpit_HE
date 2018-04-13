@@ -158,7 +158,7 @@ def deploy_he_via_cockpit_w_gluster():
     logging.info("During customization use CTRL-D to abort...Continue? [Yes]")
     dr.find_element_by_xpath("//button[@class='btn btn-lg btn-primary']").click()
     time.sleep(6)
-    dr.find_element_by_xpath("//input[@a utocomplete='new-password']").clear()
+    dr.find_element_by_xpath("//input[@autocomplete='new-password']").clear()
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").send_keys("Yes")
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     dr.implicitly_wait(7)
