@@ -130,7 +130,7 @@ def deploy_he_via_cockpit_w_gluster():
     root_uri = "https://" + rhvm_fqdn + ":" + cockpit_port
 
     logging.info("Setting browser to %s", browser)
-    
+
     dr = init_browser() 
     dr.maximize_window()
     time.sleep(5)
@@ -192,20 +192,20 @@ def deploy_he_via_cockpit_w_gluster():
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").send_keys(ovirtmgmt_nic)
     time.sleep(50)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
-    logging.info("Providing ovirtmgmt bridge NIC details...using [ "+ ovirtmgmt_nic+" ]")    
+    logging.info("Providing ovirtmgmt bridge NIC details...using [ " + ovirtmgmt_nic+" ]")
     dr.save_screenshot("/home/gkimetto/image1.png")
-    time.sleep(200)
+    dr.implicitly_wait(70)
     
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     dr.save_screenshot("/home/gkimetto/image2.png")
     logging.info("Selecting RHV-M Appliance image (OVA) - 4.1.20170328.1.el7ev [4.1.20170328.1.el7ev]")    
     dr.implicitly_wait(40)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
-    logging.info("Selecting VNC console to connect to the VM [VNC]")    
-    time.sleep(50)
+    logging.info("Selecting VNC console to connect to the VM [VNC]")
+    dr.implicitly_wait(7)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
-    logging.info("Using cloud-init to customize the appliance on the first boot[Yes]")    
-    time.sleep(19)
+    logging.info("Using cloud-init to customize the appliance on the first boot[Yes]")
+    dr.implicitly_wait(40)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("Generate on-fly a cloud-init ISO image[Generate]")    
     time.sleep(8)
@@ -219,9 +219,8 @@ def deploy_he_via_cockpit_w_gluster():
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").clear()
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").send_keys(he_vm_domain)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
-    logging.info("Providing domain name to use for the engine appliance: "+ he_vm_domain)    
-    time.sleep(4)   
-    
+    logging.info("Providing domain name to use for the engine appliance: " + he_vm_domain)
+    time.sleep(4)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
     logging.info("Automatically execute engine-setup on the engine appliance on first boot [Yes]")    
     time.sleep(4)  
@@ -266,7 +265,7 @@ def deploy_he_via_cockpit_w_gluster():
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").clear()
     dr.find_element_by_xpath("//input[@autocomplete='new-password']").send_keys(vm_mac)
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
-    logging.info("Specify a unicast MAC address for the VM : [ "+vm_mac+" ]")
+    logging.info("Specify a unicast MAC address for the VM : [ " + vm_mac+" ]")
     time.sleep(4)
     
     dr.find_element_by_xpath("//button[@class='btn btn-default']").click()
