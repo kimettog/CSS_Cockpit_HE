@@ -11,8 +11,8 @@ common:
     ovirtmgmt_nic: em1
 
 subscription:
-    rhn_user: gkimetto@redhat.com
-    rhn_password: N!ght0wl     
+    rhn_user:
+    rhn_password:
 
 hosted_engine:
     rhvm_appliance_path: https://rhhi-engine4.css.lab.eng.rdu2.redhat.com
